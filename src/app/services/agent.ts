@@ -4,7 +4,7 @@ import * as mathjs from "mathjs";
 import { z } from "zod";
 
 export const getEarnings = async () => {
-  const { toolCalls, steps } = await generateText({
+  const { toolCalls, steps, response } = await generateText({
     model: openai("gpt-4o", { structuredOutputs: true }),
     tools: {
       calculate: tool({
@@ -50,7 +50,7 @@ export const getEarnings = async () => {
   // extract all tool calls from the steps:
   const allToolCalls = steps.flatMap((step) => step.toolCalls);
   console.log(`ALL TOOL CALLS: ${JSON.stringify(allToolCalls, null, 2)}`);
-  console.log(`RESPONSE: ${JSON.stringify(toolCalls, null, 2)}`);
+  console.log(`RESPONSE: ${JSON.stringify(response, null, 2)}`);
 
   const answer =
     toolCalls[0].args && "answer" in toolCalls[0].args
