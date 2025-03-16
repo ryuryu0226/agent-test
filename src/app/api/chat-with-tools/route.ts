@@ -1,5 +1,7 @@
 import { createOpenAI } from "@ai-sdk/openai";
-import { jsonSchema, streamText } from "ai";
+import { streamText } from "ai";
+
+import { getWeather, calculate, answer } from "./tools";
 
 const openai = createOpenAI();
 
@@ -15,14 +17,7 @@ export async function POST(req: Request) {
     messages,
     // forward system prompt and tools from the frontend
     system,
-    tools: Object.fromEntries(
-      Object.entries<{ parameters: unknown }>(tools).map(([name, tool]) => [
-        name,
-        {
-          parameters: jsonSchema(tool.parameters!),
-        },
-      ])
-    ),
+    tools: { getWeather, calculate, answer },
     maxSteps: 10,
   });
 

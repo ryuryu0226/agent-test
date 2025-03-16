@@ -1,4 +1,4 @@
-import { getEarnings } from "@/app/services/ger-earnings";
+import { getEarnings } from "@/lib/get-earnings";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
