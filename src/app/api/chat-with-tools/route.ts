@@ -1,7 +1,7 @@
 import { createOpenAI } from "@ai-sdk/openai";
 import { streamText } from "ai";
 
-import { getWeather, calculate, answer } from "./tools";
+import { getWeather } from "./tools";
 
 const openai = createOpenAI();
 
@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     messages,
     // forward system prompt and tools from the frontend
     system,
-    tools: { getWeather, calculate, answer },
+    tools: { getWeather },
     maxSteps: 10,
   });
 
