@@ -3,7 +3,7 @@
 import { useAssistantRuntime, tool } from "@assistant-ui/react";
 import { z } from "zod";
 
-import { WeatherInformationToolUI } from "@/features/tool-ui-test/web-search-tool-ui";
+import { WeatherInformationToolUI } from "@/features/tool-ui-test/weather-information-tool";
 import { Thread } from "@/components/assistant-ui/thread";
 import { useEffect } from "react";
 

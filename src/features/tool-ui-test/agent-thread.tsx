@@ -1,6 +1,7 @@
 "use client";
 
-import { WeatherInformationToolUI } from "@/features/tool-ui-test/web-search-tool-ui";
+import { WeatherInformationToolUI } from "@/features/tool-ui-test/weather-information-tool";
+import { WebSearchToolUI } from "./web-search-tool";
 import { Thread } from "@/components/assistant-ui/thread";
 
 export function AgentThread() {
@@ -10,6 +11,7 @@ export function AgentThread() {
         <Thread />
       </div>
       <WeatherInformationToolUI />
+      <WebSearchToolUI />
     </>
   );
 }
